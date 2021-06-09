@@ -17,7 +17,10 @@ from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+#BASE_DIR = Path(__file__).resolve().parent.parent
+#added the below and commented out the above. 
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -45,7 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -82,7 +85,8 @@ WSGI_APPLICATION = 'dental.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3', #commented this out to add the below
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3")
     }
 }
 
@@ -126,10 +130,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+    os.path.join(BASE_DIR, 'staticfiles'),
+] 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesSorage'
+#added files to static and commented out the below
+
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesSorage'
 
 
 #email server
@@ -161,6 +167,6 @@ EMAIL_USE_TLS = False
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesSorage'
-
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesSorage'
+#zd out above
 django_heroku.settings(locals())
