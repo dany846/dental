@@ -85,8 +85,8 @@ WSGI_APPLICATION = 'dental.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': BASE_DIR / 'db.sqlite3', #commented this out to add the below
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3")
+        'NAME': BASE_DIR / 'db.sqlite3', #commented this out to add the below
+        #"NAME": os.path.join(BASE_DIR, "db.sqlite3")
     }
 }
 
