@@ -166,6 +166,6 @@ EMAIL_USE_TLS = False
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesSorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesSorage'
 #zd out above
 django_heroku.settings(locals())
